@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Escher-style Gravity Study</title>
+  <desc id="desc">A detailed geometric composition inspired by M.C. Escher motifs in a mid-century modern palette.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f5ecd7"/>
+      <stop offset="52%" stop-color="#e2d3b4"/>
+      <stop offset="100%" stop-color="#cfb790"/>
+    </linearGradient>
+    <pattern id="triangles" width="80" height="69.3" patternUnits="userSpaceOnUse">
+      <polygon points="40,0 80,69.3 0,69.3" fill="#2f6f73" opacity="0.35"/>
+      <polygon points="40,10 72,62 8,62" fill="#d4a74a" opacity="0.55"/>
+    </pattern>
+    <pattern id="lattice" width="120" height="120" patternUnits="userSpaceOnUse">
+      <rect width="120" height="120" fill="none"/>
+      <path d="M0,60 L60,0 L120,60 L60,120 Z" fill="none" stroke="#1f2a37" stroke-opacity="0.28" stroke-width="2"/>
+      <circle cx="60" cy="60" r="17" fill="#bf5b39" fill-opacity="0.42"/>
+    </pattern>
+    <radialGradient id="core" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f7d89a"/>
+      <stop offset="100%" stop-color="#bf5b39"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1400" height="900" fill="url(#bg)"/>
+  <rect width="1400" height="900" fill="url(#triangles)" opacity="0.8"/>
+  <rect width="1400" height="900" fill="url(#lattice)" opacity="0.7"/>
+
+  <g transform="translate(700 450)">
+    <circle r="172" fill="url(#core)" opacity="0.75"/>
+    <circle r="228" fill="none" stroke="#1f2a37" stroke-width="5" stroke-opacity="0.5"/>
+    <circle r="292" fill="none" stroke="#2f6f73" stroke-width="4" stroke-opacity="0.4"/>
+    <circle r="350" fill="none" stroke="#7f8f58" stroke-width="3" stroke-opacity="0.32"/>
+
+    <g fill="none" stroke="#1f2a37" stroke-opacity="0.4" stroke-width="2.2">
+      <path d="M-340,0 A340,340 0 1,1 340,0"/>
+      <path d="M-300,0 A300,300 0 1,0 300,0"/>
+      <path d="M-260,0 A260,260 0 1,1 260,0"/>
+      <path d="M-220,0 A220,220 0 1,0 220,0"/>
+      <path d="M-180,0 A180,180 0 1,1 180,0"/>
+    </g>
+
+    <g fill="#1f2a37" fill-opacity="0.78">
+      <polygon points="0,-332 20,-292 -20,-292"/>
+      <polygon points="332,0 292,20 292,-20"/>
+      <polygon points="0,332 20,292 -20,292"/>
+      <polygon points="-332,0 -292,20 -292,-20"/>
+    </g>
+
+    <g fill="#bf5b39" fill-opacity="0.68" stroke="#1f2a37" stroke-opacity="0.4" stroke-width="1.4">
+      <polygon points="0,-280 34,-236 0,-192 -34,-236"/>
+      <polygon points="280,0 236,34 192,0 236,-34"/>
+      <polygon points="0,280 34,236 0,192 -34,236"/>
+      <polygon points="-280,0 -236,34 -192,0 -236,-34"/>
+      <polygon points="198,-198 234,-162 198,-126 162,-162"/>
+      <polygon points="-198,-198 -162,-162 -198,-126 -234,-162"/>
+      <polygon points="198,198 234,162 198,126 162,162"/>
+      <polygon points="-198,198 -162,162 -198,126 -234,162"/>
+    </g>
+
+    <g fill="#d4a74a" fill-opacity="0.72">
+      <circle cx="0" cy="-340" r="12"/>
+      <circle cx="340" cy="0" r="12"/>
+      <circle cx="0" cy="340" r="12"/>
+      <circle cx="-340" cy="0" r="12"/>
+      <circle cx="240" cy="-240" r="9"/>
+      <circle cx="-240" cy="-240" r="9"/>
+      <circle cx="240" cy="240" r="9"/>
+      <circle cx="-240" cy="240" r="9"/>
+    </g>
+  </g>
+
+  <g opacity="0.58" stroke="#1f2a37" stroke-width="1.6" fill="none">
+    <path d="M110,760 C320,640 540,640 700,760 C860,880 1080,880 1290,760"/>
+    <path d="M110,140 C320,20 540,20 700,140 C860,260 1080,260 1290,140"/>
+  </g>
+</svg>

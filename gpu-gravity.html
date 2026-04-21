@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GPU Gravity Simulator | ideaflames</title>
+  <meta name="description" content="A WebGL2 gravity simulator using GPU particle updates, compatible with GitHub Pages.">
+  <link rel="stylesheet" href="sim-labs.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="page-header">
+      <h1>GPU Gravity Physics Simulator</h1>
+      <p>Particles are updated in a fragment shader each frame, then rendered as point sprites. Drag over the canvas to bend orbits with a temporary attractor.</p>
+      <nav class="top-nav" aria-label="Page navigation">
+        <a href="index.html">Back To Home</a>
+        <a href="fourier-lab.html">Open Fourier Lab</a>
+      </nav>
+    </header>
+
+    <section class="layout" aria-label="Gravity simulator layout">
+      <aside class="panel">
+        <h2>Controls</h2>
+
+        <div class="control">
+          <label for="gravityStrength">Gravity <span id="gravityValue">2.60</span></label>
+          <input id="gravityStrength" type="range" min="0.2" max="8" step="0.05" value="2.6">
+        </div>
+
+        <div class="control">
+          <label for="dragStrength">Drag <span id="dragValue">0.998</span></label>
+          <input id="dragStrength" type="range" min="0.96" max="1" step="0.001" value="0.998">
+        </div>
+
+        <div class="control">
+          <label for="timeScale">Time Scale <span id="timeValue">1.00</span></label>
+          <input id="timeScale" type="range" min="0.2" max="2.6" step="0.05" value="1">
+        </div>
+
+        <div class="control">
+          <label for="pointSize">Point Size <span id="pointValue">2.2</span></label>
+          <input id="pointSize" type="range" min="1" max="4" step="0.1" value="2.2">
+        </div>
+
+        <div class="button-row">
+          <button id="resetButton" type="button">Reset Orbit Field</button>
+          <button id="burstButton" type="button">Pulse Burst</button>
+        </div>
+
+        <img class="preview-art" src="assets/escher-gravity.svg" alt="Detailed geometric gravity composition in an Escher-inspired style using a mid-century modern palette.">
+        <p class="caption">Generated SVG artwork to complement the simulator aesthetic.</p>
+      </aside>
+
+      <section class="sim-wrap">
+        <canvas id="gravityCanvas" class="main-canvas" aria-label="GPU gravity simulation canvas"></canvas>
+        <p id="status" class="status">Initializing WebGL2 simulation...</p>
+      </section>
+    </section>
+  </main>
+  <script src="gravity-sim.js"></script>
+</body>
+</html>

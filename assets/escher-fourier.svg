@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Escher-style Fourier Tiling</title>
+  <desc id="desc">A highly detailed Escher-inspired Fourier and wave composition in a mid-century modern palette.</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f6f0e2"/>
+      <stop offset="100%" stop-color="#e2d7c0"/>
+    </linearGradient>
+    <pattern id="hexField" width="104" height="90" patternUnits="userSpaceOnUse">
+      <polygon points="52,0 104,26 104,64 52,90 0,64 0,26" fill="#2f6f73" fill-opacity="0.26"/>
+      <polygon points="52,9 95,31 95,59 52,81 9,59 9,31" fill="#d4a74a" fill-opacity="0.42"/>
+      <circle cx="52" cy="45" r="9" fill="#bf5b39" fill-opacity="0.5"/>
+    </pattern>
+    <pattern id="diag" width="30" height="30" patternUnits="userSpaceOnUse" patternTransform="rotate(15)">
+      <rect width="30" height="30" fill="none"/>
+      <path d="M0,15 L30,15" stroke="#1f2a37" stroke-width="1" stroke-opacity="0.14"/>
+    </pattern>
+  </defs>
+
+  <rect width="1400" height="900" fill="url(#paper)"/>
+  <rect width="1400" height="900" fill="url(#hexField)" opacity="0.86"/>
+  <rect width="1400" height="900" fill="url(#diag)" opacity="0.7"/>
+
+  <g transform="translate(700 450)">
+    <ellipse rx="520" ry="260" fill="#1f2a37" fill-opacity="0.08"/>
+
+    <g fill="none" stroke-width="3.2">
+      <path d="M-520,0 C-420,-120 -300,-120 -200,0 C-100,120 20,120 120,0 C220,-120 340,-120 440,0 C540,120 640,120 720,0" stroke="#bf5b39"/>
+      <path d="M-520,16 C-420,-80 -300,-80 -200,16 C-100,112 20,112 120,16 C220,-80 340,-80 440,16 C540,112 640,112 720,16" stroke="#2f6f73"/>
+      <path d="M-520,-16 C-420,-160 -300,-160 -200,-16 C-100,128 20,128 120,-16 C220,-160 340,-160 440,-16 C540,128 640,128 720,-16" stroke="#d4a74a"/>
+    </g>
+
+    <g fill="#1f2a37" fill-opacity="0.72">
+      <rect x="-500" y="210" width="16" height="70"/>
+      <rect x="-470" y="185" width="16" height="95"/>
+      <rect x="-440" y="158" width="16" height="122"/>
+      <rect x="-410" y="200" width="16" height="80"/>
+      <rect x="-380" y="140" width="16" height="140"/>
+      <rect x="-350" y="116" width="16" height="164"/>
+      <rect x="-320" y="176" width="16" height="104"/>
+      <rect x="-290" y="103" width="16" height="177"/>
+      <rect x="-260" y="82" width="16" height="198"/>
+      <rect x="-230" y="126" width="16" height="154"/>
+      <rect x="-200" y="72" width="16" height="208"/>
+      <rect x="-170" y="58" width="16" height="222"/>
+      <rect x="-140" y="110" width="16" height="170"/>
+      <rect x="-110" y="46" width="16" height="234"/>
+      <rect x="-80" y="38" width="16" height="242"/>
+      <rect x="-50" y="88" width="16" height="192"/>
+      <rect x="-20" y="26" width="16" height="254"/>
+      <rect x="10" y="32" width="16" height="248"/>
+      <rect x="40" y="92" width="16" height="188"/>
+      <rect x="70" y="44" width="16" height="236"/>
+      <rect x="100" y="54" width="16" height="226"/>
+      <rect x="130" y="120" width="16" height="160"/>
+      <rect x="160" y="68" width="16" height="212"/>
+      <rect x="190" y="90" width="16" height="190"/>
+      <rect x="220" y="146" width="16" height="134"/>
+      <rect x="250" y="106" width="16" height="174"/>
+      <rect x="280" y="170" width="16" height="110"/>
+      <rect x="310" y="154" width="16" height="126"/>
+      <rect x="340" y="196" width="16" height="84"/>
+      <rect x="370" y="176" width="16" height="104"/>
+      <rect x="400" y="214" width="16" height="66"/>
+      <rect x="430" y="228" width="16" height="52"/>
+      <rect x="460" y="242" width="16" height="38"/>
+    </g>
+
+    <g fill="#7f8f58" fill-opacity="0.72" stroke="#1f2a37" stroke-opacity="0.42" stroke-width="1.4">
+      <polygon points="0,-240 24,-216 0,-192 -24,-216"/>
+      <polygon points="-60,-210 -36,-186 -60,-162 -84,-186"/>
+      <polygon points="60,-210 84,-186 60,-162 36,-186"/>
+      <polygon points="-120,-180 -96,-156 -120,-132 -144,-156"/>
+      <polygon points="120,-180 144,-156 120,-132 96,-156"/>
+      <polygon points="-180,-150 -156,-126 -180,-102 -204,-126"/>
+      <polygon points="180,-150 204,-126 180,-102 156,-126"/>
+    </g>
+
+    <circle r="12" fill="#bf5b39"/>
+  </g>
+
+  <g fill="none" stroke="#1f2a37" stroke-opacity="0.35" stroke-width="2">
+    <path d="M60,770 C300,690 540,690 700,770 C860,850 1100,850 1340,770"/>
+    <path d="M60,130 C300,50 540,50 700,130 C860,210 1100,210 1340,130"/>
+  </g>
+</svg>

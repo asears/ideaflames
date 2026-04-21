@@ -1,0 +1,224 @@
+:root {
+  --paper: #f7f3e9;
+  --ink: #211f1f;
+  --teal: #2f6f73;
+  --rust: #bf5b39;
+  --gold: #d4a74a;
+  --olive: #7f8f58;
+  --night: #1f2a37;
+  --card: rgba(255, 255, 255, 0.82);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(212, 167, 74, 0.3), transparent 35%),
+    radial-gradient(circle at 82% 90%, rgba(47, 111, 115, 0.24), transparent 33%),
+    linear-gradient(160deg, #f4eee0, #e8dfcc 48%, #ddd1bb);
+}
+
+.page-shell {
+  width: min(1150px, 100%);
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.page-header {
+  background: var(--card);
+  border: 1px solid rgba(31, 42, 55, 0.14);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 16px 35px rgba(31, 42, 55, 0.14);
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  letter-spacing: 0.04em;
+}
+
+.page-header p {
+  margin: 0.5rem 0 0;
+  line-height: 1.5;
+}
+
+.top-nav {
+  margin-top: 0.8rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.top-nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  background: linear-gradient(180deg, #2f6f73, #24565a);
+  padding: 0.42rem 0.72rem;
+  border-radius: 999px;
+}
+
+.layout {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 0.9rem;
+}
+
+.panel,
+.sim-wrap,
+.story {
+  background: var(--card);
+  border: 1px solid rgba(31, 42, 55, 0.14);
+  border-radius: 16px;
+  box-shadow: 0 14px 26px rgba(31, 42, 55, 0.1);
+}
+
+.panel {
+  padding: 1rem;
+}
+
+.panel h2 {
+  margin: 0;
+  font-size: 1.02rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.control {
+  margin-top: 0.82rem;
+}
+
+.control label {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.control input,
+.control select {
+  width: 100%;
+  margin-top: 0.35rem;
+}
+
+.button-row {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  font-weight: 700;
+  padding: 0.45rem 0.8rem;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(180deg, #bf5b39, #95472c);
+}
+
+.sim-wrap {
+  padding: 0.7rem;
+}
+
+canvas.main-canvas {
+  width: 100%;
+  min-height: 440px;
+  height: 62vh;
+  display: block;
+  border-radius: 12px;
+  background: radial-gradient(circle at 50% 50%, #0f1924, #04070d);
+}
+
+.status {
+  margin-top: 0.5rem;
+  font-size: 0.92rem;
+  color: #24303f;
+}
+
+.preview-art {
+  margin-top: 1rem;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(31, 42, 55, 0.22);
+}
+
+.wave-grid {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.wave-grid canvas {
+  width: 100%;
+  min-height: 220px;
+  height: 35vh;
+  display: block;
+  border-radius: 12px;
+  background: #0e1722;
+}
+
+.story {
+  margin-top: 1rem;
+  overflow: hidden;
+  position: relative;
+  height: 260px;
+}
+
+.story::before,
+.story::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 42px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.story::before {
+  top: 0;
+  background: linear-gradient(180deg, rgba(247, 243, 233, 1), rgba(247, 243, 233, 0));
+}
+
+.story::after {
+  bottom: 0;
+  background: linear-gradient(0deg, rgba(247, 243, 233, 1), rgba(247, 243, 233, 0));
+}
+
+.text-track {
+  padding: 1rem 1rem 1.5rem;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.text-track p {
+  margin: 0 0 0.8rem;
+  line-height: 1.45;
+}
+
+.caption {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: #39495a;
+}
+
+@media (max-width: 980px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  canvas.main-canvas {
+    min-height: 360px;
+    height: 50vh;
+  }
+}

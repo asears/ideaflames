@@ -90,6 +90,69 @@ blockquote {
   line-height: 1.5;
 }
 
+.labs {
+  margin-top: 1.25rem;
+}
+
+.labs h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-dark);
+}
+
+.labs > p {
+  margin: 0.45rem 0 0.9rem;
+}
+
+.lab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.8rem;
+}
+
+.lab-card {
+  padding: 0.75rem;
+  border: 1px solid rgba(155, 44, 2, 0.2);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.lab-card img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid rgba(155, 44, 2, 0.24);
+}
+
+.lab-card h3 {
+  margin: 0.7rem 0 0.4rem;
+  font-size: 1rem;
+}
+
+.lab-card p {
+  margin: 0;
+  font-size: 0.94rem;
+  line-height: 1.4;
+}
+
+.lab-link {
+  display: inline-block;
+  margin-top: 0.65rem;
+  text-decoration: none;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(180deg, #f97316, #c2410c);
+  padding: 0.48rem 0.78rem;
+  border-radius: 999px;
+}
+
+.lab-link:hover,
+.lab-link:focus-visible {
+  background: linear-gradient(180deg, #ea580c, #9a3412);
+}
+
 .cta {
   display: inline-block;
   margin-top: 1.2rem;

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fourier Wave & Filter Lab | ideaflames</title>
+  <meta name="description" content="Interactive Fourier simulator showing waveform changes as frequency filters are applied.">
+  <link rel="stylesheet" href="sim-labs.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="page-header">
+      <h1>Fourier Wave & Filter Simulator</h1>
+      <p>Build a composite wave, inspect its frequency spectrum, then apply low-pass, high-pass, band-pass, or notch filters and watch the reconstruction change.</p>
+      <nav class="top-nav" aria-label="Page navigation">
+        <a href="index.html">Back To Home</a>
+        <a href="gpu-gravity.html">Open GPU Gravity</a>
+      </nav>
+    </header>
+
+    <section class="layout" aria-label="Fourier simulator layout">
+      <aside class="panel">
+        <h2>Wave Controls</h2>
+
+        <div class="control">
+          <label for="baseFreq">Base Frequency <span id="baseFreqValue">2</span></label>
+          <input id="baseFreq" type="range" min="1" max="8" step="1" value="2">
+        </div>
+
+        <div class="control">
+          <label for="richness">Harmonic Richness <span id="richnessValue">0.70</span></label>
+          <input id="richness" type="range" min="0" max="1" step="0.01" value="0.7">
+        </div>
+
+        <div class="control">
+          <label for="noise">Noise Amount <span id="noiseValue">0.08</span></label>
+          <input id="noise" type="range" min="0" max="0.4" step="0.01" value="0.08">
+        </div>
+
+        <div class="control">
+          <label for="filterType">Filter Type</label>
+          <select id="filterType">
+            <option value="low">Low-pass</option>
+            <option value="high">High-pass</option>
+            <option value="band" selected>Band-pass</option>
+            <option value="notch">Notch</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label for="cutA">Cutoff A <span id="cutAValue">8</span></label>
+          <input id="cutA" type="range" min="1" max="60" step="1" value="8">
+        </div>
+
+        <div class="control">
+          <label for="cutB">Cutoff B <span id="cutBValue">22</span></label>
+          <input id="cutB" type="range" min="1" max="60" step="1" value="22">
+        </div>
+
+        <img class="preview-art" src="assets/escher-fourier.svg" alt="Detailed geometric wave artwork in an Escher-inspired style using a mid-century modern palette.">
+        <p class="caption">Generated SVG artwork aligned with the Fourier visualization theme.</p>
+      </aside>
+
+      <section class="sim-wrap">
+        <div class="wave-grid">
+          <canvas id="waveCanvas" aria-label="Original and filtered waveform"></canvas>
+          <canvas id="spectrumCanvas" aria-label="Original and filtered frequency spectrum"></canvas>
+        </div>
+        <p id="fourierStatus" class="status">Calculating DFT and reconstruction...</p>
+      </section>
+    </section>
+
+    <section class="story" aria-label="Fourier background text">
+      <div id="textTrack" class="text-track">
+        <p><strong>Wikipedia-inspired background notes:</strong> Jean-Baptiste Joseph Fourier described how complicated periodic behavior can be represented as sums of simple sine and cosine terms, now called Fourier series.</p>
+        <p>His mathematical work connected heat flow with harmonic decomposition, showing that diffusion problems could be solved by breaking initial conditions into modes that evolve over time.</p>
+        <p>Modern Fourier transforms generalize this idea from periodic signals to broader classes of signals, mapping information from the time or spatial domain into frequency space.</p>
+        <p>Applications span image compression, MRI reconstruction, radar processing, speech analysis, audio equalization, vibration diagnostics, optics, and numerical PDE solvers.</p>
+        <p>The fast Fourier transform (FFT), developed much later by Cooley and Tukey from earlier ideas, made frequency-domain methods practical for digital computing and real-time systems.</p>
+        <p>Filtering in the frequency domain allows engineers to suppress noise, isolate components, and shape signals with precision, then reconstruct a modified signal through an inverse transform.</p>
+        <p>These ideas continue to power scientific imaging, wireless communications, astronomy data pipelines, machine learning feature extraction, and many GPU-accelerated visual effects.</p>
+      </div>
+    </section>
+  </main>
+  <script src="fourier-sim.js"></script>
+</body>
+</html>
