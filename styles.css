@@ -1,0 +1,119 @@
+:root {
+  --bg-start: #fff3d4;
+  --bg-mid: #ffd08a;
+  --bg-end: #ff8a5c;
+  --ink: #2a1b14;
+  --accent: #d9480f;
+  --accent-dark: #9b2c02;
+  --card: rgba(255, 251, 244, 0.92);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 20% 15%, rgba(255, 255, 255, 0.8), transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(255, 126, 58, 0.45), transparent 35%),
+    linear-gradient(140deg, var(--bg-start), var(--bg-mid) 52%, var(--bg-end));
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+.hero {
+  width: min(900px, 100%);
+  background: var(--card);
+  border: 1px solid rgba(155, 44, 2, 0.18);
+  border-radius: 20px;
+  padding: clamp(1.2rem, 2.5vw, 2.2rem);
+  box-shadow: 0 18px 40px rgba(80, 33, 10, 0.2);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+  letter-spacing: 0.02em;
+  font-weight: 900;
+}
+
+.brand-mark {
+  width: 18px;
+  height: 34px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  background: linear-gradient(180deg, #ffbe0b, #fb5607);
+  box-shadow: 0 0 12px rgba(251, 86, 7, 0.5);
+}
+
+.tagline {
+  margin: 0.8rem 0 1.4rem;
+  font-size: clamp(1rem, 2.4vw, 1.3rem);
+  font-weight: 400;
+}
+
+.inspiration {
+  margin: 0;
+}
+
+.inspiration h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-dark);
+}
+
+.inspiration img {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(155, 44, 2, 0.22);
+}
+
+blockquote {
+  margin: 0.85rem 0 0;
+  padding-left: 0.9rem;
+  border-left: 4px solid var(--accent);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 1.2rem;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(180deg, #f76707, #d9480f);
+  padding: 0.68rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.cta:hover,
+.cta:focus-visible {
+  background: linear-gradient(180deg, #e8590c, #c2410c);
+}
+
+@media (max-width: 640px) {
+  .hero {
+    border-radius: 14px;
+    padding: 1rem;
+  }
+
+  blockquote {
+    font-size: 1rem;
+  }
+}
