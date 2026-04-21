@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web Mercator Visualizer | ideaflames</title>
+  <meta name="description" content="Visualize random NASA GIBS Web Mercator tiles and their projected extent.">
+  <link rel="stylesheet" href="sim-labs.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="page-header">
+      <h1>Web Mercator Tile Visualizer</h1>
+      <p>Fetch random imagery tiles from NASA GIBS WMTS in EPSG:3857 and map each tile footprint on a Web Mercator projection canvas.</p>
+      <nav class="top-nav" aria-label="Page navigation">
+        <a href="index.html">Back To Home</a>
+        <a href="gpu-gravity.html">Open GPU Gravity</a>
+        <a href="fourier-lab.html">Open Fourier Lab</a>
+      </nav>
+    </header>
+
+    <section class="layout" aria-label="Mercator visualizer layout">
+      <aside class="panel">
+        <h2>Tile Controls</h2>
+
+        <div class="button-row">
+          <button id="refreshTile" type="button">Refresh Random Tile</button>
+        </div>
+
+        <div class="control">
+          <label for="zoomRange">Zoom Level <span id="zoomValue">4</span></label>
+          <input id="zoomRange" type="range" min="1" max="7" step="1" value="4">
+        </div>
+
+        <div class="tile-meta" id="tileMeta"></div>
+
+        <img class="preview-art" src="assets/escher-mercator.svg" alt="Detailed geometric cartography artwork in Escher-inspired style with a mid-century modern palette.">
+        <p class="caption">Random imagery source: NASA GIBS WMTS (EPSG:3857)</p>
+        <p class="caption"><a href="https://nasa-gibs.github.io/gibs-api-docs/" target="_blank" rel="noopener noreferrer">GIBS API docs</a></p>
+      </aside>
+
+      <section class="sim-wrap mercator-wrap">
+        <canvas id="mercatorCanvas" class="main-canvas" aria-label="Web Mercator tile footprint canvas"></canvas>
+        <div class="tile-image-wrap">
+          <img id="tileImage" alt="Random NASA GIBS map tile preview">
+        </div>
+        <p id="mercatorStatus" class="status">Loading random NASA GIBS tile...</p>
+      </section>
+    </section>
+  </main>
+  <script src="mercator-visualizer.js"></script>
+</body>
+</html>
