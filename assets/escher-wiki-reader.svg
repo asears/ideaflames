@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Escher-style News Reader Geometry</title>
+  <desc id="desc">Detailed geometric artwork evoking newspaper columns and flowing text in a mid-century modern palette.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4ecd9"/>
+      <stop offset="100%" stop-color="#dcc9a8"/>
+    </linearGradient>
+    <pattern id="tiles" width="120" height="120" patternUnits="userSpaceOnUse">
+      <rect width="120" height="120" fill="none"/>
+      <rect x="0" y="0" width="60" height="60" fill="#2f6f73" fill-opacity="0.24"/>
+      <rect x="60" y="0" width="60" height="60" fill="#bf5b39" fill-opacity="0.24"/>
+      <rect x="0" y="60" width="60" height="60" fill="#d4a74a" fill-opacity="0.3"/>
+      <rect x="60" y="60" width="60" height="60" fill="#7f8f58" fill-opacity="0.22"/>
+    </pattern>
+    <pattern id="micro" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M0,24 L24,0" stroke="#1f2a37" stroke-opacity="0.1" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1400" height="900" fill="url(#bg)"/>
+  <rect width="1400" height="900" fill="url(#tiles)"/>
+  <rect width="1400" height="900" fill="url(#micro)"/>
+
+  <g transform="translate(700 450)">
+    <rect x="-510" y="-280" width="1020" height="560" rx="32" fill="#1f2a37" fill-opacity="0.1" stroke="#1f2a37" stroke-opacity="0.4" stroke-width="4"/>
+
+    <g fill="#1f2a37" fill-opacity="0.75">
+      <rect x="-450" y="-220" width="26" height="390"/>
+      <rect x="-408" y="-195" width="26" height="365"/>
+      <rect x="-366" y="-236" width="26" height="406"/>
+      <rect x="-324" y="-170" width="26" height="340"/>
+      <rect x="-282" y="-212" width="26" height="382"/>
+      <rect x="-240" y="-188" width="26" height="358"/>
+      <rect x="-198" y="-228" width="26" height="398"/>
+      <rect x="-156" y="-160" width="26" height="330"/>
+      <rect x="-114" y="-210" width="26" height="380"/>
+      <rect x="-72" y="-184" width="26" height="354"/>
+      <rect x="-30" y="-230" width="26" height="400"/>
+      <rect x="12" y="-176" width="26" height="346"/>
+      <rect x="54" y="-220" width="26" height="390"/>
+      <rect x="96" y="-166" width="26" height="336"/>
+      <rect x="138" y="-208" width="26" height="378"/>
+      <rect x="180" y="-182" width="26" height="352"/>
+      <rect x="222" y="-224" width="26" height="394"/>
+      <rect x="264" y="-162" width="26" height="332"/>
+      <rect x="306" y="-206" width="26" height="376"/>
+      <rect x="348" y="-178" width="26" height="348"/>
+      <rect x="390" y="-216" width="26" height="386"/>
+      <rect x="432" y="-172" width="26" height="342"/>
+    </g>
+
+    <g fill="none" stroke-width="4.4">
+      <path d="M-520,-52 C-410,-160 -300,-160 -190,-52 C-80,56 30,56 140,-52 C250,-160 360,-160 470,-52 C580,56 690,56 800,-52" stroke="#bf5b39" stroke-opacity="0.82"/>
+      <path d="M-520,22 C-410,-70 -300,-70 -190,22 C-80,114 30,114 140,22 C250,-70 360,-70 470,22 C580,114 690,114 800,22" stroke="#2f6f73" stroke-opacity="0.8"/>
+    </g>
+
+    <g fill="#d4a74a" fill-opacity="0.74" stroke="#1f2a37" stroke-opacity="0.4" stroke-width="1.4">
+      <circle cx="-400" cy="-210" r="11"/>
+      <circle cx="-160" cy="-240" r="9"/>
+      <circle cx="80" cy="-208" r="11"/>
+      <circle cx="300" cy="-232" r="10"/>
+      <circle cx="-260" cy="220" r="11"/>
+      <circle cx="10" cy="236" r="10"/>
+      <circle cx="270" cy="214" r="12"/>
+    </g>
+  </g>
+</svg>

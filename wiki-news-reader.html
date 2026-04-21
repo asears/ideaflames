@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wikipedia News Speed Reader | ideaflames</title>
+  <meta name="description" content="Random English Wikipedia article reader sourced from current events with smooth speed-reading modes.">
+  <link rel="stylesheet" href="sim-labs.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="page-header">
+      <h1>Wikipedia News Speed Reader</h1>
+      <p>Fetch a random English Wikipedia article linked from current events, then read using vertical smooth scroll or horizontal phrase-flow mode with speed controls.</p>
+      <nav class="top-nav" aria-label="Page navigation">
+        <a href="index.html">Back To Home</a>
+        <a href="gpu-gravity.html">Open GPU Gravity</a>
+        <a href="fourier-lab.html">Open Fourier Lab</a>
+        <a href="mercator-visualizer.html">Open Mercator Visualizer</a>
+      </nav>
+    </header>
+
+    <section class="layout" aria-label="Wikipedia speed reader layout">
+      <aside class="panel">
+        <h2>Reader Controls</h2>
+
+        <div class="button-row">
+          <button id="loadArticle" type="button">Load Random News Article</button>
+          <button id="pauseScroll" type="button">Pause</button>
+        </div>
+
+        <div class="control">
+          <label for="modeSelect">Scroll Mode</label>
+          <select id="modeSelect">
+            <option value="vertical" selected>Vertical Smooth Scroll</option>
+            <option value="horizontal">Horizontal Phrase Scroll</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label for="speedRange">Scroll Speed <span id="speedValue">48</span></label>
+          <input id="speedRange" type="range" min="12" max="220" step="2" value="48">
+        </div>
+
+        <div class="control">
+          <label for="phraseSize">Phrase Size <span id="phraseValue">12</span></label>
+          <input id="phraseSize" type="range" min="6" max="20" step="1" value="12">
+        </div>
+
+        <div class="tile-meta" id="wikiMeta"></div>
+      </aside>
+
+      <section class="sim-wrap">
+        <article id="readerVertical" class="reader-vertical" aria-live="polite">
+          <div id="articleTrack" class="article-track"></div>
+        </article>
+
+        <article id="readerHorizontal" class="reader-horizontal" aria-live="polite" hidden>
+          <div id="phraseTrack" class="phrase-track"></div>
+        </article>
+
+        <p id="wikiStatus" class="status">Loading article candidates from Wikipedia current events...</p>
+      </section>
+    </section>
+  </main>
+  <script src="wiki-news-reader.js"></script>
+</body>
+</html>
