@@ -5,12 +5,15 @@
       name: "Inuktitut (Inuit language continuum)",
       region: "Arctic regions including Nunavut and Nunavik",
       family: "Eskimo-Aleut family",
-      context: "Many communities use Inuktitut, Inuinnaqtun, and related varieties. Orthographies and pronunciation vary by region.",
+      context: "Regional pronunciation and writing vary. Use this as a starter and follow local teacher guidance.",
       tags: ["Inuit Nunangat", "Syllabics", "Oral teaching"],
       phrases: [
         {
           key: "hello",
           label: "Greeting",
+          category: "Daily speech",
+          setting: "Meeting someone",
+          shareMode: "Spoken and written",
           script: "ai, uvlaakkut",
           syllabics: "ᐊᐃ, ᐅᕙᓚᒃᑯᑦ",
           phonetic: "eye oo-vlaak-koot",
@@ -20,6 +23,9 @@
         {
           key: "thanks",
           label: "Thanks",
+          category: "Daily speech",
+          setting: "Community gratitude",
+          shareMode: "Spoken and written",
           script: "qujannamiik",
           syllabics: "ᖁᔭᓐᓇᒦᒃ",
           phonetic: "koo-yan-na-meek",
@@ -29,11 +35,62 @@
         {
           key: "howareyou",
           label: "How are you?",
+          category: "Daily speech",
+          setting: "Conversation",
+          shareMode: "Spoken and written",
           script: "qanuitpit?",
           syllabics: "ᖃᓄᐃᑦᐱᑦ?",
           phonetic: "ka-noo-it-pit",
           meaning: "How are you?",
           source: "Everyday conversational phrase."
+        },
+        {
+          key: "land",
+          label: "Land",
+          category: "Place terminology",
+          setting: "Geography and stories",
+          shareMode: "Spoken and written",
+          script: "nuna",
+          syllabics: "ᓄᓇ",
+          phonetic: "noo-na",
+          meaning: "Land / country.",
+          source: "Foundational place term in many teaching resources."
+        },
+        {
+          key: "seaice",
+          label: "Sea Ice",
+          category: "Place terminology",
+          setting: "Travel and seasonal knowledge",
+          shareMode: "Spoken and written",
+          script: "siku",
+          syllabics: "ᓯᑯ",
+          phonetic: "see-koo",
+          meaning: "Sea ice.",
+          source: "Common environmental term."
+        },
+        {
+          key: "inuksuk",
+          label: "Inuksuk",
+          category: "Cultural symbol",
+          setting: "Navigation and memory",
+          shareMode: "Spoken and written",
+          script: "inuksuk",
+          syllabics: "ᐃᓄᒃᓱᒃ",
+          phonetic: "ee-nook-sook",
+          meaning: "Stone marker associated with direction and presence.",
+          source: "Publicly shared cultural symbol term."
+        },
+        {
+          key: "nuliajuk",
+          label: "Nuliajuk (story figure)",
+          category: "Mythology and spirituality",
+          setting: "Public story discussion",
+          shareMode: "Public spoken/written reference",
+          script: "Nuliajuk",
+          syllabics: "-",
+          phonetic: "noo-lee-ah-yook",
+          meaning: "A well-known story figure in some Inuit traditions.",
+          source: "Use only publicly shared narratives."
         }
       ]
     },
@@ -42,21 +99,27 @@
       name: "Kanien'keha (Mohawk)",
       region: "Haudenosaunee territories in present-day NY, Quebec, Ontario",
       family: "Iroquoian family",
-      context: "Kanien'keha is a living Haudenosaunee language with rich ceremonial and relational speech contexts.",
+      context: "Kanien'keha is relational and place-based; dialect, spelling, and protocol vary by community.",
       tags: ["Haudenosaunee", "Iroquoian", "Ceremonial protocols"],
       phrases: [
         {
           key: "hello",
           label: "Greeting",
+          category: "Daily speech",
+          setting: "Meeting",
+          shareMode: "Spoken and written",
           script: "She:kon",
           syllabics: "-",
           phonetic: "shay-gohn",
           meaning: "Hello.",
-          source: "Common greeting in many learning materials."
+          source: "Common greeting in learner materials."
         },
         {
           key: "thanks",
           label: "Thanks",
+          category: "Daily speech",
+          setting: "Respect and gratitude",
+          shareMode: "Spoken and written",
           script: "Nia:wen",
           syllabics: "-",
           phonetic: "nee-ah-wen",
@@ -66,11 +129,62 @@
         {
           key: "peace",
           label: "Peace",
+          category: "Values terminology",
+          setting: "Community dialogue",
+          shareMode: "Spoken and written",
           script: "Skennen",
           syllabics: "-",
           phonetic: "sken-nen",
           meaning: "Peace.",
           source: "Used in values and greeting contexts."
+        },
+        {
+          key: "people",
+          label: "The People",
+          category: "Identity terminology",
+          setting: "Ancestry context",
+          shareMode: "Spoken and written",
+          script: "Kanien'keha:ka",
+          syllabics: "-",
+          phonetic: "ga-nyen-geh-ha-gah",
+          meaning: "People of the Flint (Mohawk people).",
+          source: "Identity term used in public educational contexts."
+        },
+        {
+          key: "river",
+          label: "Great River term",
+          category: "Place terminology",
+          setting: "Place-based learning",
+          shareMode: "Public spoken/written reference",
+          script: "Kaniatarowanenneh",
+          syllabics: "-",
+          phonetic: "gah-nee-yah-dah-roh-wah-nen-neh",
+          meaning: "A Mohawk name associated with the St. Lawrence River.",
+          source: "Shared in public language resources; local pronunciation guidance preferred."
+        },
+        {
+          key: "thanksgiving",
+          label: "Thanksgiving Address",
+          category: "Spiritual/civic tradition",
+          setting: "Public teaching context",
+          shareMode: "Name can be written; full ceremonial form follows protocol",
+          script: "Ohen:ton Karihwatehkwen",
+          syllabics: "-",
+          phonetic: "oh-hen-don ga-ree-wah-teh-gwen",
+          meaning: "Words before all else / Thanksgiving Address.",
+          source: "Protocol-sensitive tradition; learn with community guidance."
+        },
+        {
+          key: "skywoman",
+          label: "Sky Woman (story figure)",
+          category: "Mythology and spirituality",
+          setting: "Public storytelling summaries",
+          shareMode: "Public spoken/written reference",
+          script: "Sky Woman",
+          syllabics: "-",
+          phonetic: "sky wo-man",
+          meaning: "Story figure in Haudenosaunee creation narratives.",
+          source: "Use community-approved versions of stories."
         }
       ]
     },
@@ -79,12 +193,15 @@
       name: "Anishinaabemowin (Ojibwe/Chippewa)",
       region: "Great Lakes and central Canada/US regions",
       family: "Algonquian family",
-      context: "Anishinaabemowin has many local dialects. Respect local elders and speakers for pronunciation and spelling preference.",
+      context: "Anishinaabemowin has many local dialects and orthographies; local speaker guidance is essential.",
       tags: ["Anishinaabe", "Great Lakes", "Dialect diversity"],
       phrases: [
         {
           key: "hello",
           label: "Greeting",
+          category: "Daily speech",
+          setting: "Meeting",
+          shareMode: "Spoken and written",
           script: "Aaniin",
           syllabics: "-",
           phonetic: "aa-neen",
@@ -94,6 +211,9 @@
         {
           key: "thanks",
           label: "Thanks",
+          category: "Daily speech",
+          setting: "Gratitude",
+          shareMode: "Spoken and written",
           script: "Miigwech",
           syllabics: "-",
           phonetic: "mee-gwetch",
@@ -103,11 +223,62 @@
         {
           key: "howareyou",
           label: "How are you?",
+          category: "Daily speech",
+          setting: "Conversation",
+          shareMode: "Spoken and written",
           script: "Aaniin ezhi-ayaayan?",
           syllabics: "-",
           phonetic: "aa-neen eh-zhi ah-yaa-yan",
           meaning: "How are you?",
           source: "Basic conversational form; local variation applies."
+        },
+        {
+          key: "land",
+          label: "Land",
+          category: "Place terminology",
+          setting: "Territory and travel",
+          shareMode: "Spoken and written",
+          script: "Aki",
+          syllabics: "-",
+          phonetic: "ah-kee",
+          meaning: "Earth / land.",
+          source: "Common place term in public learning resources."
+        },
+        {
+          key: "water",
+          label: "Water",
+          category: "Place terminology",
+          setting: "Daily and ceremonial contexts",
+          shareMode: "Spoken and written",
+          script: "Nibi",
+          syllabics: "-",
+          phonetic: "nih-bih",
+          meaning: "Water.",
+          source: "Core environmental term."
+        },
+        {
+          key: "nanabozho",
+          label: "Nanabozho (story figure)",
+          category: "Mythology and spirituality",
+          setting: "Public storytelling",
+          shareMode: "Public spoken/written reference",
+          script: "Nanabozho",
+          syllabics: "-",
+          phonetic: "nah-nah-boh-zhoh",
+          meaning: "Important story figure in many Anishinaabe narratives.",
+          source: "Use community-approved versions of stories."
+        },
+        {
+          key: "midewiwin",
+          label: "Midewiwin",
+          category: "Spiritual terminology",
+          setting: "History and context",
+          shareMode: "Name can be written; sacred teachings follow protocol",
+          script: "Midewiwin",
+          syllabics: "-",
+          phonetic: "mih-day-wih-win",
+          meaning: "Term connected to an Anishinaabe spiritual tradition.",
+          source: "Protocol-sensitive topic; seek community instruction."
         }
       ]
     },
@@ -116,12 +287,15 @@
       name: "nehiyawewin (Cree)",
       region: "Wide regions across central and northern Canada",
       family: "Algonquian family",
-      context: "Cree includes several dialects and writing systems, including syllabics in many communities.",
+      context: "Cree includes several dialects and both Roman and syllabic writing systems.",
       tags: ["Plains/Woods Cree", "Syllabics", "Oral and written forms"],
       phrases: [
         {
           key: "hello",
           label: "Greeting",
+          category: "Daily speech",
+          setting: "Meeting",
+          shareMode: "Spoken and written",
           script: "taansi",
           syllabics: "ᑖᓂᓯ",
           phonetic: "taan-si",
@@ -131,6 +305,9 @@
         {
           key: "thanks",
           label: "Thanks",
+          category: "Daily speech",
+          setting: "Gratitude",
+          shareMode: "Spoken and written",
           script: "kinanaskomitin",
           syllabics: "ᑭᓇᓈᐢᑯᒥᑎᐣ",
           phonetic: "ki-na-nah-sko-mi-tin",
@@ -140,11 +317,62 @@
         {
           key: "goodday",
           label: "Good day",
+          category: "Daily speech",
+          setting: "Conversation",
+          shareMode: "Spoken and written",
           script: "miyo kisikaw",
           syllabics: "ᒥᔪ ᑭᓯᑳᐤ",
           phonetic: "mee-yo ki-si-kaaw",
           meaning: "It is a good day.",
           source: "Daily expression; dialect and spelling vary."
+        },
+        {
+          key: "land",
+          label: "Land",
+          category: "Place terminology",
+          setting: "Territory context",
+          shareMode: "Spoken and written",
+          script: "aski",
+          syllabics: "ᐊᐢᑭ",
+          phonetic: "ahs-ki",
+          meaning: "Land / earth.",
+          source: "Core place-based term."
+        },
+        {
+          key: "water",
+          label: "Water",
+          category: "Place terminology",
+          setting: "Travel and daily life",
+          shareMode: "Spoken and written",
+          script: "nipiy",
+          syllabics: "ᓂᐱᕀ",
+          phonetic: "nih-pee",
+          meaning: "Water.",
+          source: "Core environmental term."
+        },
+        {
+          key: "sky",
+          label: "Sky",
+          category: "Place terminology",
+          setting: "Story and weather language",
+          shareMode: "Spoken and written",
+          script: "kisik",
+          syllabics: "ᑭᓯᐠ",
+          phonetic: "kih-sik",
+          meaning: "Sky.",
+          source: "Common teaching term."
+        },
+        {
+          key: "wisakedjak",
+          label: "Wisakedjak (story figure)",
+          category: "Mythology and spirituality",
+          setting: "Public storytelling summaries",
+          shareMode: "Public spoken/written reference",
+          script: "Wisakedjak",
+          syllabics: "-",
+          phonetic: "wee-sah-ked-jak",
+          meaning: "A story figure in many Cree narrative traditions.",
+          source: "Narratives vary by nation and speaker."
         }
       ]
     },
@@ -153,12 +381,15 @@
       name: "Dine Bizaad (Navajo)",
       region: "Dine homelands in the US Southwest",
       family: "Athabaskan (Na-Dene) family",
-      context: "Dine Bizaad carries deep cultural and ceremonial meaning; context and respectful use matter.",
+      context: "Dine Bizaad carries deep ceremonial and relational meaning. Use terms with respect and context.",
       tags: ["Dine", "Tone and vowel length", "Living language"],
       phrases: [
         {
           key: "hello",
           label: "Greeting",
+          category: "Daily speech",
+          setting: "Meeting",
+          shareMode: "Spoken and written",
           script: "Ya'at'eeh",
           syllabics: "-",
           phonetic: "yah-ah-teh",
@@ -168,6 +399,9 @@
         {
           key: "thanks",
           label: "Thanks",
+          category: "Daily speech",
+          setting: "Gratitude",
+          shareMode: "Spoken and written",
           script: "Ahehee'",
           syllabics: "-",
           phonetic: "ah-heh-heh",
@@ -177,26 +411,108 @@
         {
           key: "goodbye",
           label: "Goodbye",
+          category: "Daily speech",
+          setting: "Parting",
+          shareMode: "Spoken and written",
           script: "Hagoonee'",
           syllabics: "-",
           phonetic: "hah-go-neh",
           meaning: "Goodbye / See you again.",
           source: "Common farewell form in learning contexts."
+        },
+        {
+          key: "water",
+          label: "Water",
+          category: "Place terminology",
+          setting: "Land and travel",
+          shareMode: "Spoken and written",
+          script: "To",
+          syllabics: "-",
+          phonetic: "toh",
+          meaning: "Water.",
+          source: "Core place-based term."
+        },
+        {
+          key: "earth",
+          label: "Earth",
+          category: "Place terminology",
+          setting: "Ancestral context",
+          shareMode: "Spoken and written",
+          script: "Nahasdzan",
+          syllabics: "-",
+          phonetic: "nah-hahs-zdahn",
+          meaning: "Earth.",
+          source: "Commonly referenced in learning resources."
+        },
+        {
+          key: "sun",
+          label: "Sun",
+          category: "Sky terminology",
+          setting: "Story and ceremony context",
+          shareMode: "Spoken and written",
+          script: "Johonaa'ei",
+          syllabics: "-",
+          phonetic: "jo-hoh-naah-eh-ee",
+          meaning: "Sun.",
+          source: "Public teaching term; pronunciation varies with speakers."
+        },
+        {
+          key: "changingwoman",
+          label: "Changing Woman (story figure)",
+          category: "Mythology and spirituality",
+          setting: "Public story discussion",
+          shareMode: "Public spoken/written reference",
+          script: "Asdzaa Nadleehe",
+          syllabics: "-",
+          phonetic: "ahs-dzah nah-dleh-heh",
+          meaning: "A central story figure in many Dine narratives.",
+          source: "Follow community guidance for deeper teachings."
+        },
+        {
+          key: "dinetah",
+          label: "Dinetah",
+          category: "Place terminology",
+          setting: "Ancestral homeland reference",
+          shareMode: "Spoken and written",
+          script: "Dinetah",
+          syllabics: "-",
+          phonetic: "dee-neh-tah",
+          meaning: "Ancestral homeland term.",
+          source: "Publicly used geographic and cultural reference."
         }
       ]
     }
   ];
 
+  const STYLE_MAP = {
+    classic: {
+      scriptFont: '"Marcellus", serif',
+      syllabicsFont: '"Noto Sans Canadian Aboriginal", "DM Sans", sans-serif'
+    },
+    field: {
+      scriptFont: '"DM Sans", sans-serif',
+      syllabicsFont: '"Noto Sans Canadian Aboriginal", "DM Sans", sans-serif'
+    },
+    ceremony: {
+      scriptFont: '"Cormorant Garamond", serif',
+      syllabicsFont: '"Alegreya Sans SC", "Noto Sans Canadian Aboriginal", sans-serif'
+    }
+  };
+
   const els = {
     languageSelect: document.getElementById("languageSelect"),
     phraseSelect: document.getElementById("phraseSelect"),
+    voiceSelect: document.getElementById("voiceSelect"),
+    styleSelect: document.getElementById("styleSelect"),
     phrasePool: document.getElementById("phrasePool"),
     phraseLabel: document.getElementById("phraseLabel"),
     phraseSource: document.getElementById("phraseSource"),
+    phraseMeta: document.getElementById("phraseMeta"),
     phraseScript: document.getElementById("phraseScript"),
     syllabicsLine: document.getElementById("syllabicsLine"),
     phoneticLine: document.getElementById("phoneticLine"),
     meaningLine: document.getElementById("meaningLine"),
+    usageLine: document.getElementById("usageLine"),
     langName: document.getElementById("langName"),
     langRegion: document.getElementById("langRegion"),
     langFamily: document.getElementById("langFamily"),
@@ -204,6 +520,8 @@
     langTags: document.getElementById("langTags"),
     paceRange: document.getElementById("paceRange"),
     paceValue: document.getElementById("paceValue"),
+    syllabicsRange: document.getElementById("syllabicsRange"),
+    syllabicsValue: document.getElementById("syllabicsValue"),
     playGuide: document.getElementById("playGuide"),
     pauseGuide: document.getElementById("pauseGuide"),
     speakPhrase: document.getElementById("speakPhrase"),
@@ -212,6 +530,7 @@
   };
 
   const ctx = els.ballCanvas.getContext("2d");
+  const rootStyle = document.documentElement.style;
 
   let languageIndex = 0;
   let phraseIndex = 0;
@@ -222,6 +541,7 @@
   let nextWordTime = performance.now();
   let ballX = 80;
   let voices = [];
+  let selectedVoiceURI = "";
 
   function wordsPerMinute() {
     return Math.max(40, Number(els.paceRange.value));
@@ -248,7 +568,7 @@
   function populatePhraseSelect() {
     const lang = getCurrentLanguage();
     els.phraseSelect.innerHTML = lang.phrases.map((p, i) =>
-      `<option value="${i}">${p.label}</option>`
+      `<option value="${i}">${p.category} · ${p.label}</option>`
     ).join("");
 
     els.phrasePool.innerHTML = lang.phrases.map((p, i) =>
@@ -267,8 +587,10 @@
 
   function renderPhrase() {
     const phrase = getCurrentPhrase();
+    els.phraseSelect.value = String(phraseIndex);
     els.phraseLabel.textContent = phrase.label;
     els.phraseSource.textContent = phrase.source;
+    els.phraseMeta.textContent = `Category: ${phrase.category} | Setting: ${phrase.setting}`;
 
     const words = phrase.script.trim().split(/\s+/);
     els.phraseScript.innerHTML = words
@@ -286,6 +608,7 @@
 
     els.phoneticLine.textContent = `Phonetic guide: ${phrase.phonetic}`;
     els.meaningLine.textContent = `Meaning: ${phrase.meaning}`;
+    els.usageLine.textContent = `Share guidance: ${phrase.shareMode}`;
 
     els.phrasePool.querySelectorAll(".phrase-pick").forEach((btn, i) => {
       btn.classList.toggle("active", i === phraseIndex);
@@ -362,10 +685,40 @@
     nextWordTime = now + msPerWord();
   }
 
+  function populateVoiceSelect() {
+    if (!("speechSynthesis" in window)) {
+      els.voiceSelect.innerHTML = '<option value="">Speech not supported in this browser</option>';
+      els.voiceSelect.disabled = true;
+      return;
+    }
+
+    voices = window.speechSynthesis.getVoices().slice().sort((a, b) => {
+      const la = `${a.lang} ${a.name}`.toLowerCase();
+      const lb = `${b.lang} ${b.name}`.toLowerCase();
+      return la.localeCompare(lb);
+    });
+
+    if (!voices.length) {
+      els.voiceSelect.innerHTML = '<option value="">Loading voices...</option>';
+      return;
+    }
+
+    els.voiceSelect.innerHTML = voices.map((v) => {
+      const tag = `${v.lang} - ${v.name}`;
+      return `<option value="${v.voiceURI}">${tag}</option>`;
+    }).join("");
+
+    if (!selectedVoiceURI) {
+      const preferred = voices.find((v) => /en-|english/i.test(v.lang));
+      selectedVoiceURI = (preferred || voices[0]).voiceURI;
+    }
+
+    els.voiceSelect.value = selectedVoiceURI;
+  }
+
   function chooseVoice() {
     if (!voices.length) return null;
-    const preferred = voices.find((v) => /en-|english/i.test(v.lang));
-    return preferred || voices[0];
+    return voices.find((v) => v.voiceURI === selectedVoiceURI) || voices[0];
   }
 
   function speak(text, rate = 0.86) {
@@ -377,6 +730,19 @@
     if (voice) utter.voice = voice;
     window.speechSynthesis.cancel();
     window.speechSynthesis.speak(utter);
+  }
+
+  function applyWritingStyle(styleKey) {
+    const style = STYLE_MAP[styleKey] || STYLE_MAP.classic;
+    rootStyle.setProperty("--script-font", style.scriptFont);
+    rootStyle.setProperty("--syllabics-font", style.syllabicsFont);
+  }
+
+  function applySyllabicsScale(pct) {
+    const numeric = Math.max(85, Math.min(190, Number(pct)));
+    const scale = (numeric / 100).toFixed(2);
+    rootStyle.setProperty("--syllabics-scale", String(scale));
+    els.syllabicsValue.textContent = String(numeric);
   }
 
   function handleLanguageChange(i) {
@@ -401,6 +767,14 @@
       handlePhraseChange(e.target.value);
     });
 
+    els.voiceSelect.addEventListener("change", (e) => {
+      selectedVoiceURI = e.target.value;
+    });
+
+    els.styleSelect.addEventListener("change", (e) => {
+      applyWritingStyle(e.target.value);
+    });
+
     els.phrasePool.addEventListener("click", (e) => {
       const btn = e.target.closest(".phrase-pick");
       if (!btn) return;
@@ -411,6 +785,10 @@
     els.paceRange.addEventListener("input", () => {
       els.paceValue.textContent = String(wordsPerMinute());
       nextWordTime = performance.now() + msPerWord();
+    });
+
+    els.syllabicsRange.addEventListener("input", () => {
+      applySyllabicsScale(els.syllabicsRange.value);
     });
 
     els.playGuide.addEventListener("click", () => {
@@ -435,20 +813,17 @@
     window.addEventListener("resize", resizeCanvas);
 
     if ("speechSynthesis" in window) {
-      voices = window.speechSynthesis.getVoices();
+      populateVoiceSelect();
       window.speechSynthesis.onvoiceschanged = () => {
-        voices = window.speechSynthesis.getVoices();
+        populateVoiceSelect();
       };
     }
   }
 
   function frame(now) {
-    const dt = Math.min((now - lastTime) / 1000, 0.05);
     lastTime = now;
-    if (dt >= 0) {
-      stepGuide(now);
-      drawBall(now);
-    }
+    stepGuide(now);
+    drawBall(now);
     requestAnimationFrame(frame);
   }
 
@@ -457,6 +832,8 @@
     populatePhraseSelect();
     renderLanguageMeta();
     renderPhrase();
+    applyWritingStyle("classic");
+    applySyllabicsScale(els.syllabicsRange.value);
     resizeCanvas();
     els.paceValue.textContent = String(wordsPerMinute());
     attachEvents();
