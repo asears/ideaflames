@@ -38,13 +38,13 @@
         </div>
 
         <div class="control">
-          <label for="speedRange">Scroll Speed <span id="speedValue">48</span></label>
+          <label for="speedRange"><span id="speedLabel">Scroll Speed</span> <span id="speedValue">48</span></label>
           <input id="speedRange" type="range" min="12" max="220" step="2" value="48">
         </div>
 
         <div class="control">
-          <label for="phraseSize">Phrase Size <span id="phraseValue">12</span></label>
-          <input id="phraseSize" type="range" min="6" max="20" step="1" value="12">
+          <label for="phraseSize">Words per Phrase <span id="phraseValue">3</span></label>
+          <input id="phraseSize" type="range" min="1" max="6" step="1" value="3">
         </div>
 
         <div class="tile-meta" id="wikiMeta"></div>
@@ -55,8 +55,15 @@
           <div id="articleTrack" class="article-track"></div>
         </article>
 
-        <article id="readerHorizontal" class="reader-horizontal" aria-live="polite" hidden>
-          <div id="phraseTrack" class="phrase-track"></div>
+        <article id="readerHorizontal" class="reader-rsvp" aria-live="polite" hidden>
+          <div class="rsvp-wrap">
+            <div class="rsvp-orp-marker"></div>
+            <p id="rsvpPhrase" class="rsvp-phrase" aria-live="assertive">&#8212;</p>
+          </div>
+          <div class="rsvp-footer">
+            <div class="rsvp-prog-track"><div id="rsvpProgressBar" class="rsvp-prog-fill"></div></div>
+            <span id="rsvpCounter" class="rsvp-count">0 / 0</span>
+          </div>
         </article>
 
         <p id="wikiStatus" class="status">Loading article candidates from Wikipedia current events...</p>
