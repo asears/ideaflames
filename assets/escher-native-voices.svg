@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="Geometric earth-sky-water-flame artwork with language symbols.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a282e"/>
+      <stop offset="45%" stop-color="#203640"/>
+      <stop offset="100%" stop-color="#121e24"/>
+    </linearGradient>
+    <linearGradient id="earth" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8f6134" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#5f4128" stop-opacity="0.8"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2e6d8a" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#79aeca" stop-opacity="0.7"/>
+    </linearGradient>
+    <radialGradient id="flame" cx="50%" cy="58%" r="55%">
+      <stop offset="0%" stop-color="#f1ae5a" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#c95f2f" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="tiles" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M14 1L27 14L14 27L1 14Z" fill="none" stroke="rgba(220,199,162,0.12)" stroke-width="0.8"/>
+    </pattern>
+  </defs>
+
+  <rect width="400" height="260" fill="url(#bg)"/>
+  <rect width="400" height="260" fill="url(#tiles)"/>
+
+  <path d="M0 176C63 156 120 187 174 173C233 158 289 129 400 154V260H0Z" fill="url(#earth)"/>
+  <path d="M0 188C55 177 110 214 175 204C240 194 290 165 400 179" fill="none" stroke="url(#water)" stroke-width="6" stroke-linecap="round"/>
+  <path d="M0 204C61 191 117 226 177 216C241 206 295 177 400 192" fill="none" stroke="rgba(121,174,202,0.35)" stroke-width="3" stroke-linecap="round"/>
+
+  <ellipse cx="204" cy="124" rx="115" ry="78" fill="url(#flame)"/>
+
+  <g stroke="rgba(220,199,162,0.35)" stroke-width="1.1" fill="none">
+    <path d="M88 90Q150 37 213 73Q252 95 310 74"/>
+    <path d="M86 165Q154 135 211 164Q260 188 315 154"/>
+    <path d="M72 127Q121 105 171 124Q236 151 323 124"/>
+  </g>
+
+  <g fill="rgba(230,223,207,0.88)" font-family="Noto Sans Canadian Aboriginal, sans-serif" font-size="21" letter-spacing="2">
+    <text x="138" y="116">ᐊᐃ</text>
+    <text x="176" y="116">ᑖᓂᓯ</text>
+    <text x="245" y="116">ᖁᔭᓐᓇᒦᒃ</text>
+  </g>
+
+  <g fill="rgba(220,199,162,0.86)" font-family="Georgia, serif" font-size="14" letter-spacing="1">
+    <text x="118" y="141">AANIIN</text>
+    <text x="184" y="141">NIA:WEN</text>
+    <text x="257" y="141">YA'AT'EEH</text>
+  </g>
+
+  <g transform="translate(180,86)">
+    <circle cx="0" cy="0" r="6" fill="#f2b257"/>
+    <circle cx="27" cy="-6" r="4" fill="#f2b257" opacity="0.7"/>
+    <circle cx="53" cy="0" r="5" fill="#f2b257"/>
+    <line x1="53" y1="5" x2="53" y2="22" stroke="rgba(242,178,87,0.55)" stroke-dasharray="2 4"/>
+  </g>
+
+  <g stroke="rgba(217,110,47,0.52)" stroke-width="2" fill="none">
+    <path d="M40 40L64 40L52 18Z"/>
+    <path d="M360 58L383 58L371 34Z"/>
+    <path d="M26 238L44 238L35 220Z"/>
+  </g>
+</svg>
