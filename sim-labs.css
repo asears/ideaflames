@@ -319,33 +319,100 @@ canvas.main-canvas {
 }
 
 .reader-horizontal {
-  height: 58vh;
-  min-height: 220px;
+  height: auto;
+  min-height: 260px;
   overflow: hidden;
   display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+}
+
+/* ── RSVP ticker styles ─────────────────────────── */
+.reader-rsvp {
+  border: 1px solid rgba(31, 42, 55, 0.2);
+  border-radius: 12px;
+  background: #0e1722;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 220px;
+}
+
+.rsvp-wrap {
+  flex: 1;
+  display: flex;
   align-items: center;
+  justify-content: center;
   position: relative;
+  padding: 2rem 2.5rem;
 }
 
-.phrase-track {
-  white-space: nowrap;
-  display: inline-flex;
-  gap: 0.7rem;
-  padding: 0 1rem;
-  will-change: transform;
+.rsvp-orp-marker {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(212, 167, 74, 0.1);
+  pointer-events: none;
 }
 
-.phrase-chip {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.54rem 0.72rem;
-  border-radius: 999px;
-  background: #1f2a37;
-  color: #f8e8c8;
-  border: 1px solid rgba(212, 167, 74, 0.65);
+.rsvp-phrase {
+  font-size: clamp(1.6rem, 5vw, 2.8rem);
   font-weight: 700;
-  letter-spacing: 0.01em;
+  color: #f8e8c8;
+  text-align: center;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  max-width: 700px;
+  margin: 0;
+  padding: 0;
+  opacity: 1;
 }
+
+@keyframes rsvpFadeIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.rsvp-flash {
+  animation: rsvpFadeIn 0.12s ease forwards;
+}
+
+.rsvp-footer {
+  background: #111d2c;
+  padding: 0.5rem 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.rsvp-prog-track {
+  flex: 1;
+  height: 4px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.rsvp-prog-fill {
+  height: 4px;
+  background: linear-gradient(90deg, #d4a74a, #f8e8c8);
+  border-radius: 4px;
+  width: 0%;
+  transition: width 0.2s linear;
+}
+
+.rsvp-count {
+  font-size: 0.78rem;
+  color: rgba(248,232,200,0.5);
+  min-width: 4.5rem;
+  text-align: right;
+}
+
+.phrase-track { display: none; }
+.phrase-chip  { display: none; }
 
 @media (max-width: 980px) {
   .layout {

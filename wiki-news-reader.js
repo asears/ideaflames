@@ -1,35 +1,61 @@
 (() => {
-  const articleTrack = document.getElementById("articleTrack");
-  const phraseTrack = document.getElementById("phraseTrack");
-  const readerVertical = document.getElementById("readerVertical");
+  const articleTrack     = document.getElementById("articleTrack");
+  const rsvpPhrase       = document.getElementById("rsvpPhrase");
+  const rsvpProgressBar  = document.getElementById("rsvpProgressBar");
+  const rsvpCounter      = document.getElementById("rsvpCounter");
+  const readerVertical   = document.getElementById("readerVertical");
   const readerHorizontal = document.getElementById("readerHorizontal");
 
-  const status = document.getElementById("wikiStatus");
-  const wikiMeta = document.getElementById("wikiMeta");
+  const status      = document.getElementById("wikiStatus");
+  const wikiMeta    = document.getElementById("wikiMeta");
 
-  const loadButton = document.getElementById("loadArticle");
+  const loadButton  = document.getElementById("loadArticle");
   const pauseButton = document.getElementById("pauseScroll");
-  const modeSelect = document.getElementById("modeSelect");
-  const speedRange = document.getElementById("speedRange");
-  const speedValue = document.getElementById("speedValue");
-  const phraseSize = document.getElementById("phraseSize");
+  const modeSelect  = document.getElementById("modeSelect");
+  const speedRange  = document.getElementById("speedRange");
+  const speedLabel  = document.getElementById("speedLabel");
+  const speedValue  = document.getElementById("speedValue");
+  const phraseSize  = document.getElementById("phraseSize");
   const phraseValue = document.getElementById("phraseValue");
 
   let paused = false;
-  let speed = Number(speedRange.value);
-  let phraseWordCount = Number(phraseSize.value);
-
   let articleOffset = 0;
-  let phraseOffset = 0;
   let lastFrame = performance.now();
 
-  let phraseTextWidth = 0;
+  // RSVP state
+  let rsvpPhrases = [];
+  let rsvpIndex   = 0;
+  let rsvpNextMs  = 0;
+
+  function getWpm()         { return Math.max(30, Number(speedRange.value)); }
+  function getPhraseWords() { return Math.max(1, Number(phraseSize.value)); }
+  function msPerPhrase()    { return (getPhraseWords() / getWpm()) * 60000; }
 
   function updateReadouts() {
-    speed = Number(speedRange.value);
-    phraseWordCount = Number(phraseSize.value);
-    speedValue.textContent = String(speed);
-    phraseValue.textContent = String(phraseWordCount);
+    speedValue.textContent  = String(speedRange.value);
+    phraseValue.textContent = String(phraseSize.value);
+    if (speedLabel) speedLabel.textContent = modeSelect.value === "horizontal" ? "Speed (WPM)" : "Scroll Speed";
+  }
+
+  // RSVP rendering
+  function showRsvpPhrase(i) {
+    if (!rsvpPhrases.length || !rsvpPhrase) return;
+    rsvpPhrase.classList.remove("rsvp-flash");
+    void rsvpPhrase.offsetWidth; // trigger reflow to restart CSS animation
+    rsvpPhrase.textContent = rsvpPhrases[i] || "";
+    rsvpPhrase.classList.add("rsvp-flash");
+    if (rsvpCounter) rsvpCounter.textContent = `${i + 1}\u2009/\u2009${rsvpPhrases.length}`;
+    if (rsvpProgressBar) {
+      const pct = rsvpPhrases.length > 1 ? (i / (rsvpPhrases.length - 1)) * 100 : 100;
+      rsvpProgressBar.style.width = `${pct}%`;
+    }
+  }
+
+  function buildRsvpPhrases(text) {
+    rsvpPhrases = chunkWords(text, getPhraseWords());
+    rsvpIndex   = 0;
+    showRsvpPhrase(0);
+    rsvpNextMs  = performance.now() + msPerPhrase();
   }
 
   function chunkWords(text, chunkSize) {
@@ -137,27 +163,15 @@
       <p class="article-tail">End of article. Auto-looping scroll enabled.</p>
     `;
 
-    const phraseChunks = chunkWords(article.extract, phraseWordCount);
-    phraseTrack.innerHTML = "";
-    phraseChunks.forEach((chunk) => {
-      const span = document.createElement("span");
-      span.className = "phrase-chip";
-      span.textContent = chunk;
-      phraseTrack.appendChild(span);
-    });
+    buildRsvpPhrases(article.extract);
 
     articleOffset = 0;
-    phraseOffset = 0;
     readerVertical.scrollTop = 0;
-
-    requestAnimationFrame(() => {
-      phraseTextWidth = phraseTrack.scrollWidth;
-    });
 
     wikiMeta.innerHTML = [
       `<p><strong>Title:</strong> ${article.title}</p>`,
       `<p><strong>Source:</strong> <a href="${article.articleUrl}" target="_blank" rel="noopener noreferrer">Wikipedia (English)</a></p>`,
-      `<p><strong>Mode Tip:</strong> Horizontal mode groups words into phrase chips for speed readers.</p>`
+      `<p><strong>RSVP mode:</strong> Showing ${getPhraseWords()} word(s) at a time at ${getWpm()} WPM.</p>`
     ].join("");
   }
 
@@ -167,21 +181,17 @@
 
     if (!paused) {
       if (modeSelect.value === "vertical") {
-        articleOffset += speed * dt;
+        articleOffset += Number(speedRange.value) * dt;
         const maxScroll = Math.max(0, articleTrack.scrollHeight - readerVertical.clientHeight + 30);
-        if (articleOffset > maxScroll) {
-          articleOffset = 0;
-        }
+        if (articleOffset > maxScroll) articleOffset = 0;
         readerVertical.scrollTop = articleOffset;
       } else {
-        phraseOffset += speed * dt;
-        const width = Math.max(phraseTextWidth, readerHorizontal.clientWidth);
-        const cycle = width + readerHorizontal.clientWidth + 40;
-        if (phraseOffset > cycle) {
-          phraseOffset = 0;
+        // RSVP: advance phrase on timer
+        if (rsvpPhrases.length > 0 && now >= rsvpNextMs) {
+          rsvpIndex = (rsvpIndex + 1) % rsvpPhrases.length;
+          showRsvpPhrase(rsvpIndex);
+          rsvpNextMs = now + msPerPhrase();
         }
-        const x = readerHorizontal.clientWidth - phraseOffset;
-        phraseTrack.style.transform = `translate3d(${x}px, 0, 0)`;
       }
     }
 
@@ -189,20 +199,20 @@
   }
 
   function applyMode() {
-    const mode = modeSelect.value;
-    if (mode === "vertical") {
-      readerVertical.hidden = false;
-      readerHorizontal.hidden = true;
-    } else {
-      readerVertical.hidden = true;
-      readerHorizontal.hidden = false;
-      phraseTrack.style.transform = `translate3d(${readerHorizontal.clientWidth}px, 0, 0)`;
+    const isH = modeSelect.value === "horizontal";
+    readerVertical.hidden   = isH;
+    readerHorizontal.hidden = !isH;
+    updateReadouts();
+    if (isH && rsvpPhrases.length) {
+      showRsvpPhrase(rsvpIndex);
+      rsvpNextMs = performance.now() + msPerPhrase();
     }
   }
 
   function togglePause() {
     paused = !paused;
     pauseButton.textContent = paused ? "Resume" : "Pause";
+    if (!paused) rsvpNextMs = performance.now() + msPerPhrase();
   }
 
   modeSelect.addEventListener("change", applyMode);
@@ -213,30 +223,13 @@
 
   phraseSize.addEventListener("input", () => {
     updateReadouts();
-    if (articleTrack.textContent.trim().length > 0) {
-      const plainText = Array.from(articleTrack.querySelectorAll("p"))
-        .map((p) => p.textContent || "")
-        .join(" ");
-      const chunks = chunkWords(plainText, phraseWordCount);
-      phraseTrack.innerHTML = "";
-      chunks.forEach((chunk) => {
-        const span = document.createElement("span");
-        span.className = "phrase-chip";
-        span.textContent = chunk;
-        phraseTrack.appendChild(span);
-      });
-      requestAnimationFrame(() => {
-        phraseTextWidth = phraseTrack.scrollWidth;
-      });
-    }
+    const text = Array.from(articleTrack.querySelectorAll("p"))
+      .map(p => p.textContent || "").join(" ").trim();
+    if (text.length > 10) buildRsvpPhrases(text);
   });
 
   loadButton.addEventListener("click", loadRandomNewsArticle);
   pauseButton.addEventListener("click", togglePause);
-
-  window.addEventListener("resize", () => {
-    phraseTextWidth = phraseTrack.scrollWidth;
-  });
 
   updateReadouts();
   applyMode();
