@@ -252,6 +252,32 @@ canvas.main-canvas {
   image-rendering: auto;
 }
 
+.debug-box {
+  margin-top: 0.85rem;
+  border: 1px solid rgba(31, 42, 55, 0.22);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.debug-box summary {
+  cursor: pointer;
+  padding: 0.5rem 0.65rem;
+  font-weight: 700;
+  color: #24384b;
+}
+
+#debugTrace {
+  margin: 0;
+  padding: 0.6rem 0.7rem 0.8rem;
+  max-height: 220px;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: #1f2a37;
+}
+
 .reader-vertical,
 .reader-horizontal {
   border: 1px solid rgba(31, 42, 55, 0.2);

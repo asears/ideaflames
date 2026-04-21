@@ -7,13 +7,27 @@
   const zoomValue = document.getElementById("zoomValue");
   const tileMeta = document.getElementById("tileMeta");
   const status = document.getElementById("mercatorStatus");
+  const debugTrace = document.getElementById("debugTrace");
   let currentTile = null;
+  let activeController = null;
+  let activeObjectUrl = null;
+
+  const debugLines = [];
 
   const layers = [
-    { name: "MODIS_Terra_CorrectedReflectance_TrueColor", format: "jpg" },
-    { name: "VIIRS_SNPP_CorrectedReflectance_TrueColor", format: "jpg" },
-    { name: "MODIS_Aqua_CorrectedReflectance_TrueColor", format: "jpg" }
+    { name: "BlueMarble_ShadedRelief", format: "jpg", matrixSet: "GoogleMapsCompatible_Level8" },
+    { name: "BlueMarble_NextGeneration", format: "jpg", matrixSet: "GoogleMapsCompatible_Level8" },
+    { name: "BlueMarble_ShadedRelief_Bathymetry", format: "jpg", matrixSet: "GoogleMapsCompatible_Level8" }
   ];
+
+  function addDebugLine(line) {
+    const stamp = new Date().toISOString().slice(11, 19);
+    debugLines.push(`[${stamp}] ${line}`);
+    if (debugLines.length > 140) {
+      debugLines.shift();
+    }
+    debugTrace.textContent = debugLines.join("\n");
+  }
 
   function resize() {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -76,13 +90,6 @@
     }
   }
 
-  function randomDateString() {
-    const now = new Date();
-    const backDays = Math.floor(Math.random() * 18);
-    const d = new Date(now.getTime() - backDays * 24 * 60 * 60 * 1000);
-    return d.toISOString().slice(0, 10);
-  }
-
   function buildRandomTile() {
     const z = Number(zoomRange.value);
     const n = Math.pow(2, z);
@@ -90,10 +97,9 @@
     const y = Math.floor(Math.random() * n);
 
     const layer = layers[Math.floor(Math.random() * layers.length)];
-    const date = randomDateString();
-    const url = `https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/${layer.name}/default/${date}/GoogleMapsCompatible_Level${z}/${z}/${y}/${x}.${layer.format}`;
+    const url = `https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/${layer.name}/default/${layer.matrixSet}/${z}/${y}/${x}.${layer.format}`;
 
-    return { z, x, y, layer, date, url };
+    return { z, x, y, layer, url };
   }
 
   function drawTileFootprint(tile) {
@@ -126,34 +132,72 @@
   function setMeta(tile) {
     tileMeta.innerHTML = [
       `<p><strong>Layer:</strong> ${tile.layer.name}</p>`,
-      `<p><strong>Date:</strong> ${tile.date}</p>`,
+      `<p><strong>Matrix Set:</strong> ${tile.layer.matrixSet}</p>`,
       `<p><strong>Tile:</strong> ${tile.z}/${tile.x}/${tile.y}</p>`,
       `<p><strong>URL:</strong> <a href="${tile.url}" target="_blank" rel="noopener noreferrer">Open source tile</a></p>`
     ].join("");
   }
 
-  function tryLoadRandomTile(attempt = 0) {
+  async function loadTileViaFetch(tile, attempt) {
+    if (activeController) {
+      activeController.abort();
+    }
+    activeController = new AbortController();
+
+    addDebugLine(`Request attempt ${attempt + 1}: GET ${tile.url}`);
+
+    const response = await fetch(tile.url, {
+      method: "GET",
+      mode: "cors",
+      cache: "no-store",
+      signal: activeController.signal
+    });
+
+    const type = response.headers.get("content-type") || "unknown";
+    const len = response.headers.get("content-length") || "unknown";
+    addDebugLine(`Response ${response.status} ${response.statusText}; content-type=${type}; content-length=${len}`);
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status} ${response.statusText}`);
+    }
+
+    const blob = await response.blob();
+    if (!blob.type.startsWith("image/")) {
+      throw new Error(`Unexpected blob type: ${blob.type || "unknown"}`);
+    }
+
+    if (activeObjectUrl) {
+      URL.revokeObjectURL(activeObjectUrl);
+    }
+    activeObjectUrl = URL.createObjectURL(blob);
+    tileImage.src = activeObjectUrl;
+  }
+
+  async function tryLoadRandomTile(attempt = 0) {
     const tile = buildRandomTile();
     zoomValue.textContent = String(tile.z);
 
-    status.textContent = `Loading ${tile.layer.name} (${tile.date}) at z/x/y ${tile.z}/${tile.x}/${tile.y}...`;
-
-    tileImage.onload = () => {
+    status.textContent = `Loading ${tile.layer.name} at z/x/y ${tile.z}/${tile.x}/${tile.y}...`;
+    try {
+      await loadTileViaFetch(tile, attempt);
       currentTile = tile;
       drawTileFootprint(tile);
       setMeta(tile);
       status.textContent = "Loaded random NASA GIBS tile and projected its Web Mercator footprint.";
-    };
-
-    tileImage.onerror = () => {
+      addDebugLine(`Render success for layer=${tile.layer.name} tile=${tile.z}/${tile.x}/${tile.y}`);
+    } catch (err) {
+      if (err.name === "AbortError") {
+        addDebugLine("Request aborted due to newer refresh request.");
+        return;
+      }
+      addDebugLine(`Request failed: ${err.message}`);
       if (attempt < 5) {
-        tryLoadRandomTile(attempt + 1);
+        await tryLoadRandomTile(attempt + 1);
       } else {
         status.textContent = "Could not fetch a random tile after several tries. Try refreshing again.";
+        addDebugLine("All retries exhausted.");
       }
-    };
-
-    tileImage.src = tile.url;
+    }
   }
 
   refreshButton.addEventListener("click", () => tryLoadRandomTile(0));
