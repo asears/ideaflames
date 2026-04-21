@@ -212,6 +212,46 @@ canvas.main-canvas {
   color: #39495a;
 }
 
+.tile-meta {
+  margin-top: 0.85rem;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  color: #2b3a48;
+}
+
+.tile-meta p {
+  margin: 0.36rem 0;
+}
+
+.tile-meta a,
+.caption a {
+  color: #1e5961;
+  font-weight: 700;
+}
+
+.mercator-wrap .main-canvas {
+  min-height: 340px;
+  height: 48vh;
+}
+
+.tile-image-wrap {
+  margin-top: 0.65rem;
+  border: 1px solid rgba(31, 42, 55, 0.22);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0d1724;
+  min-height: 240px;
+  display: grid;
+  place-items: center;
+}
+
+.tile-image-wrap img {
+  width: min(100%, 640px);
+  height: auto;
+  display: block;
+  image-rendering: auto;
+}
+
 @media (max-width: 980px) {
   .layout {
     grid-template-columns: 1fr;

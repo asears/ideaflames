@@ -7,6 +7,7 @@
   const zoomValue = document.getElementById("zoomValue");
   const tileMeta = document.getElementById("tileMeta");
   const status = document.getElementById("mercatorStatus");
+  let currentTile = null;
 
   const layers = [
     { name: "MODIS_Terra_CorrectedReflectance_TrueColor", format: "jpg" },
@@ -138,6 +139,7 @@
     status.textContent = `Loading ${tile.layer.name} (${tile.date}) at z/x/y ${tile.z}/${tile.x}/${tile.y}...`;
 
     tileImage.onload = () => {
+      currentTile = tile;
       drawTileFootprint(tile);
       setMeta(tile);
       status.textContent = "Loaded random NASA GIBS tile and projected its Web Mercator footprint.";
@@ -162,7 +164,11 @@
   });
 
   window.addEventListener("resize", () => {
-    drawWorld();
+    if (currentTile) {
+      drawTileFootprint(currentTile);
+    } else {
+      drawWorld();
+    }
   });
 
   drawWorld();

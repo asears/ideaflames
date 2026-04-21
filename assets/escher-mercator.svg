@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Escher-style Mercator Cartography</title>
+  <desc id="desc">Detailed geometric map-inspired artwork in an Escher-influenced mid-century modern palette.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f3ead7"/>
+      <stop offset="100%" stop-color="#d8c6a5"/>
+    </linearGradient>
+    <pattern id="diamondGrid" width="96" height="96" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="96" height="96" fill="none"/>
+      <rect x="0" y="0" width="96" height="48" fill="#2f6f73" fill-opacity="0.2"/>
+      <rect x="0" y="48" width="96" height="48" fill="#bf5b39" fill-opacity="0.16"/>
+      <path d="M0,0 L96,0 M0,48 L96,48 M0,96 L96,96" stroke="#1f2a37" stroke-opacity="0.18" stroke-width="2"/>
+    </pattern>
+    <pattern id="hatch" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M0,20 L20,0" stroke="#1f2a37" stroke-opacity="0.11" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1400" height="900" fill="url(#bg)"/>
+  <rect width="1400" height="900" fill="url(#diamondGrid)"/>
+  <rect width="1400" height="900" fill="url(#hatch)"/>
+
+  <g transform="translate(700 450)">
+    <rect x="-520" y="-290" width="1040" height="580" rx="30" fill="#1f2a37" fill-opacity="0.1" stroke="#1f2a37" stroke-opacity="0.4" stroke-width="4"/>
+
+    <g fill="none" stroke="#1f2a37" stroke-opacity="0.36" stroke-width="2">
+      <path d="M-500,-220 L500,-220"/>
+      <path d="M-500,-165 L500,-165"/>
+      <path d="M-500,-110 L500,-110"/>
+      <path d="M-500,-55 L500,-55"/>
+      <path d="M-500,0 L500,0"/>
+      <path d="M-500,55 L500,55"/>
+      <path d="M-500,110 L500,110"/>
+      <path d="M-500,165 L500,165"/>
+      <path d="M-500,220 L500,220"/>
+
+      <path d="M-420,-270 L-420,270"/>
+      <path d="M-315,-270 L-315,270"/>
+      <path d="M-210,-270 L-210,270"/>
+      <path d="M-105,-270 L-105,270"/>
+      <path d="M0,-270 L0,270"/>
+      <path d="M105,-270 L105,270"/>
+      <path d="M210,-270 L210,270"/>
+      <path d="M315,-270 L315,270"/>
+      <path d="M420,-270 L420,270"/>
+    </g>
+
+    <g fill="#d4a74a" fill-opacity="0.6" stroke="#1f2a37" stroke-opacity="0.45" stroke-width="1.5">
+      <rect x="-210" y="-110" width="140" height="92"/>
+      <rect x="-70" y="-110" width="140" height="92"/>
+      <rect x="70" y="-110" width="140" height="92"/>
+      <rect x="-140" y="-18" width="140" height="92"/>
+      <rect x="0" y="-18" width="140" height="92"/>
+      <rect x="140" y="-18" width="140" height="92"/>
+    </g>
+
+    <g fill="none" stroke-width="4.2">
+      <path d="M-500,-40 C-370,-160 -240,-160 -110,-40 C20,80 150,80 280,-40 C410,-160 540,-160 670,-40" stroke="#bf5b39" stroke-opacity="0.82"/>
+      <path d="M-500,24 C-370,-72 -240,-72 -110,24 C20,120 150,120 280,24 C410,-72 540,-72 670,24" stroke="#2f6f73" stroke-opacity="0.78"/>
+    </g>
+
+    <g fill="#7f8f58" fill-opacity="0.78">
+      <circle cx="-350" cy="-180" r="12"/>
+      <circle cx="-140" cy="-195" r="10"/>
+      <circle cx="80" cy="-178" r="11"/>
+      <circle cx="280" cy="-188" r="9"/>
+      <circle cx="-250" cy="178" r="12"/>
+      <circle cx="20" cy="190" r="10"/>
+      <circle cx="250" cy="182" r="11"/>
+    </g>
+  </g>
+</svg>
