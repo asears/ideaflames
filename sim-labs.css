@@ -234,6 +234,12 @@ canvas.main-canvas {
   height: 48vh;
 }
 
+.intv-stage-wrap .main-canvas {
+  min-height: 360px;
+  height: 56vh;
+  image-rendering: pixelated;
+}
+
 .tile-image-wrap {
   margin-top: 0.65rem;
   border: 1px solid rgba(31, 42, 55, 0.22);

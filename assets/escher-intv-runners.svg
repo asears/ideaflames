@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Intellivision Runners Preview</title>
+  <desc id="desc">Blue retro runners on a platform over stylized mountain bands with analog scanline effects.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2d2a62"/>
+      <stop offset="1" stop-color="#16273f"/>
+    </linearGradient>
+    <linearGradient id="mountA" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2a3f64"/>
+      <stop offset="1" stop-color="#3c5e6e"/>
+    </linearGradient>
+    <linearGradient id="mountB" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3e5c4f"/>
+      <stop offset="1" stop-color="#5a7a66"/>
+    </linearGradient>
+    <pattern id="scan" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="transparent"/>
+      <rect width="8" height="2" fill="#020a10" fill-opacity="0.22"/>
+    </pattern>
+  </defs>
+
+  <rect width="960" height="540" fill="url(#bg)"/>
+
+  <path d="M0 330 L120 280 L220 320 L330 260 L450 315 L570 275 L690 330 L810 290 L960 350 L960 540 L0 540 Z" fill="url(#mountA)"/>
+  <path d="M0 370 L90 340 L180 370 L300 315 L420 360 L560 330 L700 380 L840 340 L960 392 L960 540 L0 540 Z" fill="url(#mountB)"/>
+
+  <rect x="0" y="372" width="960" height="110" fill="#1f4fd6"/>
+  <rect x="0" y="372" width="960" height="10" fill="#8ba6ff"/>
+  <rect x="438" y="372" width="86" height="110" fill="#08205b"/>
+
+  <g fill="#0b52ff">
+    <path d="M130 205h28v20h20v10h-48z M120 225h10v40h-10z M130 265h38v10h-28v16h-10z M168 250h40v10h-40z"/>
+    <path d="M280 200h28v20h20v10h-48z M270 220h10v40h-10z M280 260h38v10h-28v16h-10z M318 245h40v10h-40z"/>
+    <path d="M610 205h28v20h20v10h-48z M600 225h10v40h-10z M610 265h38v10h-28v16h-10z M648 250h40v10h-40z"/>
+    <path d="M760 205h28v20h20v10h-48z M750 225h10v40h-10z M760 265h38v10h-28v16h-10z M798 250h40v10h-40z"/>
+  </g>
+
+  <circle cx="542" cy="340" r="18" fill="#f28e23"/>
+  <circle cx="560" cy="326" r="8" fill="#ffd08f"/>
+
+  <rect width="960" height="540" fill="url(#scan)"/>
+</svg>

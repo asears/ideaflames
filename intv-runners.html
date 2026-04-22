@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intellivision Running Men Lab | ideaflames</title>
+  <meta name="description" content="Rotoscoped retro running men with trap doors, blocker behavior, and VHS-era GPU post effects.">
+  <link rel="stylesheet" href="sim-labs.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="page-header">
+      <h1>Intellivision Running Men Lab</h1>
+      <p>Pixel runners sprint in formation, dodge blockers, and miss the platform at a trap door while CRT/VCR artifacts smear the frame like an early 1980s home recording.</p>
+      <nav class="top-nav" aria-label="Page navigation">
+        <a href="index.html">Back To Home</a>
+        <a href="gpu-gravity.html">Open Gravity Simulator</a>
+      </nav>
+    </header>
+
+    <section class="layout" aria-label="Intellivision runner simulator layout">
+      <aside class="panel">
+        <h2>Controls</h2>
+
+        <div class="control">
+          <label for="runnerCount">Runner Count <span id="runnerCountValue">12</span></label>
+          <input id="runnerCount" type="range" min="6" max="24" step="1" value="12">
+        </div>
+
+        <div class="control">
+          <label for="speedScale">Run Speed <span id="speedScaleValue">1.00</span></label>
+          <input id="speedScale" type="range" min="0.4" max="1.8" step="0.05" value="1">
+        </div>
+
+        <div class="control">
+          <label for="trapCadence">Trap Door Cadence <span id="trapCadenceValue">7.0s</span></label>
+          <input id="trapCadence" type="range" min="3" max="14" step="0.5" value="7">
+        </div>
+
+        <div class="control">
+          <label for="vcrIntensity">VCR Filter <span id="vcrIntensityValue">0.62</span></label>
+          <input id="vcrIntensity" type="range" min="0" max="1" step="0.02" value="0.62">
+        </div>
+
+        <div class="button-row">
+          <button id="audioButton" type="button">Enable Sound</button>
+          <button id="resetButton" type="button">Reset Crowd</button>
+        </div>
+
+        <p class="status" id="audioStatus">Audio is muted until enabled.</p>
+        <p class="caption">Palette: Intellivision-inspired 1979/1982 tones with 8-bit style block animation.</p>
+      </aside>
+
+      <section class="sim-wrap intv-stage-wrap">
+        <canvas id="intvCanvas" class="main-canvas" aria-label="Intellivision running men simulation"></canvas>
+        <p id="status" class="status">Booting pixel scene...</p>
+      </section>
+    </section>
+  </main>
+
+  <script src="intv-runners.js"></script>
+</body>
+</html>
